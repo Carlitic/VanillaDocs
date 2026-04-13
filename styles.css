@@ -346,8 +346,7 @@ body {
 
 .documentation pre {
   position: relative;
-  background: var(--code-bg);
-  /* Prism plugin uses specific left padding for line numbers, do not override with generic padding */
+  /* Let Prism handle background and padding */
   border-radius: var(--radius);
   overflow-x: auto;
   margin: 1rem 0;
@@ -360,7 +359,7 @@ body {
   padding: 0;
   font-family: 'Monaco', 'Menlo', monospace;
   font-size: 0.9em;
-  color: inherit;
+  /* Let Prism handle text color */
 }
 
 .documentation ul, .documentation ol {
