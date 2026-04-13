@@ -18,6 +18,18 @@ nav:
     path: "features.md"
     description: "Lista completa de características de VanillaDocs"
 
+  - title: "Desplegar en Vercel"
+    path: "deploy-vercel.md"
+    description: "Cómo publicar tu documentación en Vercel"
+
+  - title: "Desplegar en GitHub Pages"
+    path: "deploy-github-pages.md"
+    description: "Pasos para alojar la web con GitHub Pages"
+
+  - title: "Desplegar en Cloudflare"
+    path: "deploy-cloudflare.md"
+    description: "Usando Cloudflare Pages para tu proyecto"
+
 # Configuración global
 config:
   site_title: "Visor de Documentación"
