@@ -165,9 +165,6 @@ body.dark-theme code[class*="language-"]::mozselection {
   text-shadow: none;
   background: #234879;
 }
-body.dark-theme @media print {
-  pre[class*="language-"],
-  code[class*="language-"] }
 
 body.dark-theme pre[class*="language-"] {
   padding: 1em;

@@ -829,6 +829,13 @@
                 if (!pre.classList.contains('line-numbers') && !pre.querySelector('code.language-mermaid')) {
                     pre.classList.add('line-numbers');
                 }
+                var code = pre.querySelector('code');
+                if (code && code.className) {
+                    var langMatch = code.className.match(/language-\w+/);
+                    if (langMatch) {
+                        pre.classList.add(langMatch[0]);
+                    }
+                }
             });
 
             if (window.Prism) {
