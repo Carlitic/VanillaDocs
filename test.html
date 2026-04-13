@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test</title>
+</head>
+<body>
+    <h1>Test Server</h1>
+    <script>
+        // Probar fetch básico
+        fetch('docs/index.md')
+            .then(response => {
+                console.log('Test fetch status:', response.status);
+                return response.text();
+            })
+            .then(text => {
+                console.log('Test fetch content length:', text.length);
+            })
+            .catch(error => {
+                console.error('Test fetch error:', error);
+            });
+    </script>
+</body>
+</html>

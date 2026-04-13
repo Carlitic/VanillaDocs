@@ -1,0 +1,38 @@
+# Configuración de navegación para el visor de documentación
+# Este archivo YAML define la estructura del menú lateral
+
+nav:
+  - title: "Inicio"
+    path: "index.md"
+    description: "Página principal y overview del proyecto"
+
+  - title: "Empezando"
+    path: "getting-started.md"
+    description: "Guía de instalación y primeros pasos"
+
+  - title: "Referencia API"
+    path: "api.md"
+    description: "Documentación completa de la API"
+
+  - title: "Características"
+    path: "features.md"
+    description: "Lista completa de características de VanillaDocs"
+
+# Configuración global
+config:
+  site_title: "Visor de Documentación"
+  default_theme: "light"
+  enable_search: true
+  show_toc: true
+  
+# Metadatos para SEO
+meta:
+  description: "Visor minimalista de documentación técnica construido con tecnologías web nativas"
+  keywords: "documentation, markdown, vanilla js, html5, css3"
+  author: "Tu Nombre"
+  
+# Personalización de estilos (opcional)
+styles:
+  primary_color: "#2563eb"
+  font_family: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+  code_font: "'Monaco', 'Menlo', monospace"

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Manual de Usuario - VanillaDocs</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            line-height: 1.6;
+            color: #1f2937;
+        }
+        h1 { color: #2563eb; border-bottom: 2px solid #2563eb; padding-bottom: 10px; }
+        h2 { color: #1d4ed8; margin-top: 30px; }
+        code { background: #f3f4f6; padding: 2px 6px; border-radius: 4px; }
+        pre { background: #f3f4f6; padding: 16px; border-radius: 8px; overflow-x: auto; }
+        table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        th, td { border: 1px solid #e5e7eb; padding: 12px; text-align: left; }
+        th { background: #f3f4f6; }
+        .note { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 16px; margin: 20px 0; }
+        .pdf-manual-footer { color: #6b7280; text-align: center; }
+    </style>
+</head>
+<body>
+    <h1>Manual de Usuario - VanillaDocs</h1>
+    
+    <p>Este es un documento de ejemplo. <strong>Para usar tus propios PDFs:</strong></p>
+    
+    <div class="note">
+        <strong>Nota:</strong> Reemplaza este archivo con tu propio PDF en la carpeta <code>docs/pdfs/</code>
+    </div>
+    
+    <h2>Cómo usar PDFs en tu documentación</h2>
+    
+    <h3>1. Agregar archivos PDF</h3>
+    <p>Coloca tus archivos PDF en la carpeta <code>docs/pdfs/</code>:</p>
+    <pre>docs/
+├── pdfs/
+│   ├── manual.pdf
+│   ├── guia.pdf
+│   └── api.pdf</pre>
+    
+    <h3>2. Insertar en el contenido</h3>
+    <p>Usa la sintaxis de bloque <code>```pdf</code> en tu archivo .md:</p>
+    <pre>## Manual
+
+\`\`\`pdf
+manual.pdf
+\`\`\`</pre>
+    
+    <h3>3. Resultado</h3>
+    <p>Se renderiza un visor con:</p>
+    <ul>
+        <li><strong>Iframe</strong> mostrando el PDF</li>
+        <li><strong>Título</strong> del archivo</li>
+        <li><strong>Botón descargar</strong> para guardar el PDF</li>
+    </ul>
+    
+    <h2>Atajos de teclado</h2>
+    <table>
+        <tr><th>Tecla</th><th>Acción</th></tr>
+        <tr><td>/</td><td>Buscar</td></tr>
+
+        <tr><td>Esc</td><td>Cerrar modal</td></tr>
+        <tr><td>Ctrl+P</td><td>Exportar página a PDF</td></tr>
+    </table>
+    
+    <h2>Características de VanillaDocs</h2>
+    <ul>
+        <li>✅ Syntax Highlighting (25+ lenguajes)</li>
+        <li>✅ Callouts/Admonitions</li>
+        <li>✅ Scrollspy TOC</li>
+        <li>✅ Keyboard Shortcuts</li>
+        <li>✅ Visor de PDFs</li>
+        <li>✅ Búsqueda Full-Text</li>
+        <li>✅ Lightbox Imágenes</li>
+        <li>✅ Breadcrumbs</li>
+        <li>✅ Mermaid Diagrams</li>
+        <li>✅ PWA/Offline</li>
+    </ul>
+    
+    <hr>
+    <p class="pdf-manual-footer">
+        VanillaDocs - Visor de Documentación Minimalista
+    </p>
+</body>
+</html>

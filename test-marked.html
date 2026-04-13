@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script type="module">
+import { marked } from 'https://cdn.jsdelivr.net/npm/marked/+esm';
+const markdown = `
+# hello
+<div class="pdf-viewer">test</div>
+`;
+console.log(marked.parse(markdown));
+</script>
+</body>
+</html>

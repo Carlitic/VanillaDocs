@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VanillaDocs - Visor de Documentación</title>
+    <meta name="description" content="Visor de documentación minimalista con Vanilla JS">
+    <meta name="theme-color" content="#2563eb">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    
+    <link href="https://cdn.jsdelivr.net/npm/prism@1.29.0/themes/prism-dracula.min.css" rel="stylesheet">
+    
+    <script type="module">
+        console.log('Loading CDN libraries...');
+        Promise.all([
+            import('https://cdn.jsdelivr.net/npm/marked/+esm'),
+            import('https://cdn.jsdelivr.net/npm/js-yaml/dist/js-yaml.mjs')
+        ])
+        .then(function(modules) {
+            var markedModule = modules[0];
+            var jsyamlModule = modules[1];
+            
+            window.marked = markedModule.marked || markedModule.default;
+            window.jsyaml = jsyamlModule.default || jsyamlModule;
+            
+            console.log('CDN libraries loaded');
+            console.log('marked type:', typeof window.marked);
+            console.log('jsyaml type:', typeof window.jsyaml);
+            window.dispatchEvent(new Event('CDNDepsLoaded'));
+        })
+        .catch(function(error) {
+            console.error('Error loading CDN libraries:', error);
+        });
+    </script>
+</head>
+<body>
+    <div class="layout">
+        <header class="header">
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <a href="#index" class="logo-link">
+                <img src="logo.svg" alt="Logo" class="logo-img">
+                <span class="logo-text">VanillaDocs</span>
+            </a>
+            <div class="header-actions">
+                <button class="header-btn" id="export-pdf-btn" aria-label="Exportar a PDF" title="Exportar a PDF">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="12" y1="18" x2="12" y2="12"/>
+                        <line x1="9" y1="15" x2="15" y2="15"/>
+                    </svg>
+                </button>
+                <button class="theme-toggle" id="theme-toggle-btn" aria-label="Cambiar tema">☀️</button>
+            </div>
+        </header>
+
+        <div class="layout-main">
+            <nav class="sidebar" aria-label="Navegación principal">
+                <div class="sidebar-content">
+                    <div class="search">
+                        <input type="search" id="search-input" placeholder="Buscar... (/)" aria-label="Buscar documentación">
+                    </div>
+                    <ul class="nav-list" id="nav-list">
+                        <li><a href="#" data-path="index.md">Cargando...</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main class="content" aria-label="Contenido principal">
+                <article class="documentation" id="documentation-content">
+                    <div class="loading">Cargando documentación...</div>
+                </article>
+            </main>
+
+            <aside class="toc-sidebar" aria-label="Índice de contenidos" id="toc-container">
+                <div class="toc-content">
+                    <h4 class="toc-title">Contenido</h4>
+                    <nav id="toc-nav"></nav>
+                </div>
+            </aside>
+        </div>
+
+        <footer class="footer">
+            <p>Visor de Documentación Minimalista</p>
+        </footer>
+    </div>
+
+    <script src="script.js" type="module"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/prism@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prism@1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prism@1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prism@1.29.0/components/prism-json.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prism@1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prism@1.29.0/components/prism-yaml.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prism@1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prism@1.29.0/components/prism-markdown.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prism@1.29.0/components/prism-typescript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prism@1.29.0/components/prism-sql.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prism@1.29.0/components/prism-go.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prism@1.29.0/components/prism-java.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prism@1.29.0/components/prism-docker.min.js"></script>
+</body>
+</html>
