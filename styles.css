@@ -347,7 +347,7 @@ body {
 .documentation pre {
   position: relative;
   background: var(--code-bg);
-  padding: 1rem;
+  /* Prism plugin uses specific left padding for line numbers, do not override with generic padding */
   border-radius: var(--radius);
   overflow-x: auto;
   margin: 1rem 0;
@@ -834,7 +834,7 @@ body {
     margin: 1rem 0;
     border-radius: var(--radius);
     overflow: hidden;
-    border: 1px solid var(--border-color);
+    border: 1px solid #333333;
 }
 
 .code-header-bar {
@@ -842,14 +842,14 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 0.5rem 0.75rem;
-    background: var(--bg-secondary);
-    border-bottom: 1px solid var(--border-color);
+    background: #1e1e1e;
+    border-bottom: 1px solid #333333;
     font-size: 0.8rem;
 }
 
 .code-language {
     font-weight: 600;
-    color: var(--text-secondary);
+    color: #a3a3a3;
     text-transform: uppercase;
     font-size: 0.75rem;
     letter-spacing: 0.5px;
@@ -858,12 +858,12 @@ body {
 /* Botón copiar código */
 .copy-btn {
     padding: 0.25rem 0.5rem;
-    background: var(--bg-primary);
-    border: 1px solid var(--border-color);
+    background: #2d2d2d;
+    border: 1px solid #404040;
     border-radius: 3px;
     font-size: 0.7rem;
     font-weight: 500;
-    color: var(--text-secondary);
+    color: #a3a3a3;
     cursor: pointer;
     transition: all 0.2s ease;
     font-family: inherit;

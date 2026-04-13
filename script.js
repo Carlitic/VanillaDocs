@@ -544,6 +544,9 @@
                 // Evitar procesar bloques ya procesados
                 if (pre.parentElement.classList.contains('code-block-wrapper')) return;
                 
+                // Activar line-numbers para Prism
+                pre.classList.add('line-numbers');
+                
                 var code = pre.querySelector('code');
                 if (!code) return;
                 
@@ -794,6 +797,13 @@
         
         
         highlightCode: function() {
+            var preBlocks = document.querySelectorAll('.documentation pre');
+            preBlocks.forEach(function(pre) {
+                if (!pre.classList.contains('line-numbers') && !pre.querySelector('code.language-mermaid')) {
+                    pre.classList.add('line-numbers');
+                }
+            });
+
             if (window.Prism) {
                 window.Prism.highlightAll();
             }
