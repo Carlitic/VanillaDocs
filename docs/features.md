@@ -68,7 +68,7 @@ Usa la barra a tu izquierda en el Sidebar. Busca contenido tanto en los títulos
 
 ```mermaid
 graph TD;
-    A[Cliente de Navegador] --> B{Enrutador Local (Hash)};
+    A[Cliente de Navegador] --> B[Enrutador Local];
     B --> C[Markdown Parse];
     B --> D[Config YAML Parse];
     C --> E[Visualización en UI];
