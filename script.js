@@ -576,18 +576,45 @@
                 copyBtn.addEventListener('click', function() {
                     var text = code.textContent;
                     
-                    navigator.clipboard.writeText(text).then(function() {
+                    var onSuccess = function() {
                         copyBtn.textContent = '¡Copiado!';
                         copyBtn.classList.add('copied');
-                        
                         setTimeout(function() {
                             copyBtn.textContent = 'Copiar';
                             copyBtn.classList.remove('copied');
                         }, 2000);
-                    }).catch(function(err) {
+                    };
+
+                    var onError = function(err) {
                         console.error('Error al copiar:', err);
                         copyBtn.textContent = 'Error';
-                    });
+                        setTimeout(function() {
+                            copyBtn.textContent = 'Copiar';
+                        }, 2000);
+                    };
+
+                    if (navigator.clipboard && window.isSecureContext) {
+                        navigator.clipboard.writeText(text).then(onSuccess).catch(onError);
+                    } else {
+                        try {
+                            var textArea = document.createElement("textarea");
+                            textArea.value = text;
+                            textArea.style.position = "fixed";
+                            textArea.style.left = "-9999px";
+                            document.body.appendChild(textArea);
+                            textArea.focus();
+                            textArea.select();
+                            var successful = document.execCommand('copy');
+                            document.body.removeChild(textArea);
+                            if (successful) {
+                                onSuccess();
+                            } else {
+                                onError(new Error("Fallback de copiado falló"));
+                            }
+                        } catch (err) {
+                            onError(err);
+                        }
+                    }
                 });
                 
                 headerBar.appendChild(langLabel);
