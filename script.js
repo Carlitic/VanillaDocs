@@ -15,6 +15,7 @@
         init: function() {
             this.setupEventListeners();
             this.updateThemeButton();
+            this.updatePrismTheme();
             this.loadNavigation();
             this.loadContent(this.currentPath);
             this.setupKeyboardShortcuts();
@@ -819,6 +820,18 @@
             var themeBtn = document.getElementById('theme-toggle-btn');
             if (themeBtn) {
                 themeBtn.textContent = this.theme === 'dark' ? '🌙' : '☀️';
+            }
+            this.updatePrismTheme();
+        },
+        
+        updatePrismTheme: function() {
+            var prismLink = document.getElementById('prism-theme-css');
+            if (prismLink) {
+                if (this.theme === 'dark') {
+                    prismLink.href = 'https://cdn.jsdelivr.net/gh/katorlys/prism-theme-github/themes/prism-theme-github-dark.css';
+                } else {
+                    prismLink.href = 'https://cdn.jsdelivr.net/gh/katorlys/prism-theme-github/themes/prism-theme-github-light.css';
+                }
             }
         },
         
