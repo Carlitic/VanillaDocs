@@ -11,7 +11,7 @@ Puedes descargar todo el directorio y ponerlo donde más gustes. Asegúrate de t
 
 ```bash
 # Ejemplo: clonar el repositorio si estuviera git
-git clone https://github.com/tu-usuario/vanilladocs.git
+git clone https://github.com/Carlitic/VanillaDocs.git
 cd vanilladocs
 ```
 

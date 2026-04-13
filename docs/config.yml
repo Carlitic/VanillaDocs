@@ -29,7 +29,7 @@ config:
 meta:
   description: "Visor minimalista de documentación técnica construido con tecnologías web nativas"
   keywords: "documentation, markdown, vanilla js, html5, css3"
-  author: "Tu Nombre"
+  author: "Carlitic"
   
 # Personalización de estilos (opcional)
 styles:
