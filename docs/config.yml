@@ -18,6 +18,10 @@ nav:
     path: "features.md"
     description: "Lista completa de características de VanillaDocs"
 
+  - title: "Diagramas Mermaid"
+    path: "diagrams.md"
+    description: "Ejemplos de diagramas con Mermaid.js"
+
   - title: "Desplegar en Vercel"
     path: "deploy-vercel.md"
     description: "Cómo publicar tu documentación en Vercel"
