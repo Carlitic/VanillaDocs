@@ -518,7 +518,7 @@
                         self.highlightCode();
                         self.setupCodeBlocks();
                         
-                        // Delay para asegurar que el DOM está renderizado
+                        // Delay para asegurar que el DOM está renderizado y Prism ha terminado
                         setTimeout(function() {
                             self.generateTOC();
                             self.injectPrevNext();
@@ -527,7 +527,7 @@
                             self.renderMermaidDiagrams();
                             self.setupCodeBlocks();
                             self.setupScrollspy();
-                        }, 50);
+                        }, 200);
                     }, 100);
                 })
                 .catch(function(error) {
@@ -646,34 +646,49 @@
         },
 
         initMermaid: function() {
-            if (window.mermaid) {
-                window.mermaid.initialize({
-                    startOnLoad: false,
-                    theme: this.theme === 'dark' ? 'dark' : 'default',
-                    securityLevel: 'loose'
+            var self = this;
+            if (!window.mermaid) return;
+
+            window.mermaid.initialize({
+                startOnLoad: false,
+                theme: this.theme === 'dark' ? 'dark' : 'default',
+                securityLevel: 'loose'
+            });
+
+            var mermaidBlocks = document.querySelectorAll('.documentation pre code.language-mermaid');
+            mermaidBlocks.forEach(function(block, index) {
+                var pre = block.parentElement;
+
+                // Evitar duplicados si ya fue renderizado
+                if (pre.dataset.mermaidRendered) return;
+                pre.dataset.mermaidRendered = '1';
+
+                // Decodificar entidades HTML que Prism pudo haber escapado
+                var tmp = document.createElement('div');
+                tmp.innerHTML = block.innerHTML;
+                var graphDefinition = tmp.textContent || tmp.innerText || '';
+
+                var containerId = 'mermaid-container-' + index + '-' + Date.now();
+                var renderId    = 'mermaid-render-'    + index + '-' + Date.now();
+
+                var container = document.createElement('div');
+                container.className = 'mermaid-diagram';
+                container.id = containerId;
+
+                pre.parentNode.insertBefore(container, pre);
+                pre.style.display = 'none';
+
+                window.mermaid.render(renderId, graphDefinition).then(function(result) {
+                    container.innerHTML = result.svg;
+                }).catch(function(error) {
+                    console.error('Error renderizando Mermaid:', error);
+                    pre.style.display = '';
+                    pre.dataset.mermaidRendered = '';
+                    container.remove();
                 });
-                
-                var mermaidBlocks = document.querySelectorAll('.documentation pre code.language-mermaid');
-                mermaidBlocks.forEach(function(block, index) {
-                    var pre = block.parentElement;
-                    var graphDefinition = block.textContent;
-                    
-                    var container = document.createElement('div');
-                    container.className = 'mermaid-diagram';
-                    container.id = 'mermaid-' + index;
-                    
-                    pre.parentNode.insertBefore(container, pre);
-                    pre.style.display = 'none';
-                    
-                    window.mermaid.render('mermaid-' + index, graphDefinition).then(function(result) {
-                        container.innerHTML = result.svg;
-                    }).catch(function(error) {
-                        console.error('Error renderizando Mermaid:', error);
-                        pre.style.display = 'block';
-                    });
-                });
-            }
+            });
         },
+
 
         setupImageLightbox: function() {
             var self = this;
