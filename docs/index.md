@@ -1,31 +1,63 @@
-# Bienvenido a VanillaDocs
+<div class="landing-hero">
+  <img src="https://ui-avatars.com/api/?name=Carlitic&background=facc15&color=000&size=200" alt="Profile" class="landing-profile-img">
+  <div class="landing-tags">
+    <span class="landing-tag">GitHub</span>
+    <span class="landing-tag">LinkedIn</span>
+    <span class="landing-tag">Web</span>
+  </div>
+  <h1 class="landing-title">Profesor del Ciclo Formativo Superior<br>Desarrollo de Aplicaciones Web</h1>
+  <p class="landing-subtitle">Aprende a programar desde cero hasta nivel profesional con las tecnologías más demandadas del mercado.</p>
+  <a href="#contacto" class="landing-btn">Contáctame</a>
+</div>
 
-Bienvenido a la documentación oficial generada con **VanillaDocs**, una solución hermosa, rápida y completamente en *Vanilla JS* para visualizar tu documentación técnica y proyectos de Markdown.
+<h2 class="landing-category">Programación</h2>
 
-## ¿Qué es VanillaDocs?
+<div class="card-grid">
+  <a href="#programacion" class="course-card">
+    <div class="course-info">
+      <h3 class="course-title">Programación en Java</h3>
+      <p class="course-desc">Fundamentos de programación orientada a objetos, estructuras de datos y algoritmos en Java.</p>
+      <button class="course-btn">Acceder ➔</button>
+    </div>
+    <div class="course-img-container">
+      <img src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg" alt="Java">
+    </div>
+  </a>
+</div>
 
-VanillaDocs nació de la necesidad de tener páginas de documentación rápidas y que no dependieran de herramientas de compilación pesadas como Node.js en su fase de producción, compiladores de sitios estáticos ni grandes librerías de componentes (ej. React, Vue). Está construido 100% sobre tecnologías nativas web.
+<h2 class="landing-category">Desarrollo Web en Entorno Servidor</h2>
 
-Esto lo hace ideal para:
-- Prototipos rápidos.
-- Proyectos pequeños o scripts.
-- Integración en repositorios que solo requieren una página sencilla de manual.
-- Mostrar contenido eficientemente.
+<div class="card-grid">
+  <a href="#symfony" class="course-card">
+    <div class="course-info">
+      <h3 class="course-title">Symfony</h3>
+      <p class="course-desc">Aprende el framework PHP más potente. MVC, enrutamiento, Doctrine ORM y Twig.</p>
+      <button class="course-btn">Acceder ➔</button>
+    </div>
+    <div class="course-img-container">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Symfony_logo.svg" alt="Symfony">
+    </div>
+  </a>
 
-## Principales Objetivos del Proyecto
+  <a href="#symfony-tienda" class="course-card">
+    <div class="course-info">
+      <h3 class="course-title">Symfony Tienda Online</h3>
+      <p class="course-desc">Desarrollo de un e-commerce completo con carrito, pasarela de pago y panel de administración.</p>
+      <button class="course-btn">Acceder ➔</button>
+    </div>
+    <div class="course-img-container">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Symfony_logo.svg" alt="Symfony Tienda">
+    </div>
+  </a>
 
-1. **Rendimiento Máximo:** Sin frameworks costosos que parsear. Todo en Vanilla JS.
-2. **Setup Cero:** Solo suelta tus `.md` en la carpeta y añade sus nombres al archivo `.yml`. Sin pasos de build (NPM/yarn).
-3. **Beautiful UX:** Soporte moderno que respeta y promueve buenos UI/UX (Modo Oscuro, Pestañas, Tablas, búsqueda rápida).
-
-::: tip Listo para el futuro
-El proyecto ha sido rediseñado para asegurar que la carga de dependencias vía CDN no bloquee la ejecución y evite errores de `marked.js` no disponible durante la carga inicial.
-:::
-
-## Enlaces Rápidos
-
-Visita las siguientes secciones principales para conocer más:
-
-- 🚀 [Empezando](./getting-started.md): Aprende a instalar y desplegar.
-- ✨ [Características](./features.md): Descubre todo el potencial y extensiones que soporta VanillaDocs.
-- ⚙️ [Referencia API](./api.md): Información para aquellos modificando el código de VanillaDocs.
+  <a href="#node-express" class="course-card">
+    <div class="course-info">
+      <h3 class="course-title">Node + Express</h3>
+      <p class="course-desc">Creación de APIs RESTful, middleware, autenticación JWT y conexión a bases de datos NoSQL.</p>
+      <button class="course-btn">Acceder ➔</button>
+    </div>
+    <div class="course-img-container">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="Node Express">
+    </div>
+  </a>
+</div>
