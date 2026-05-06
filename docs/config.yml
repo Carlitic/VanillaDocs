@@ -2,25 +2,37 @@
 # Este archivo YAML define la estructura del menú lateral
 
 nav:
-  - title: "Inicio"
+  - title: "✦ Inicio"
     path: "index.md"
-    description: "Página principal y overview del proyecto"
+    description: "Menú principal de opciones"
 
   - title: "Empezando"
     path: "getting-started.md"
     description: "Guía de instalación y primeros pasos"
 
-  - title: "Referencia API"
-    path: "api.md"
-    description: "Documentación completa de la API"
-
   - title: "Características"
     path: "features.md"
     description: "Lista completa de características de VanillaDocs"
 
+  - title: "Ejemplo: Índice de Curso"
+    path: "estructura-curso.md"
+    description: "Ejemplo de página maestra o hub"
+
+  - title: "Integración con Obsidian"
+    path: "obsidian.md"
+    description: "Usa Obsidian para escribir rápido"
+
+  - title: "Sistema de Routing"
+    path: "routing.md"
+    description: "Cómo funcionan los enlaces y el SPA internamente"
+
   - title: "Diagramas Mermaid"
     path: "diagrams.md"
     description: "Ejemplos de diagramas con Mermaid.js"
+
+  - title: "Referencia API"
+    path: "api.md"
+    description: "Documentación completa de la API"
 
   - title: "Desplegar en Vercel"
     path: "deploy-vercel.md"

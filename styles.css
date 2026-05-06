@@ -1231,3 +1231,49 @@ body.dark-theme .landing-btn {
     border-top: 1px solid var(--border-color);
   }
 }
+
+/* Ocultar barras laterales y cabecera en modo Landing Page */
+body.is-landing-page .sidebar {
+  display: none !important;
+}
+
+body.is-landing-page .toc-sidebar {
+  display: none !important;
+}
+
+body.is-landing-page .header {
+  background: transparent !important;
+  border-bottom: none !important;
+  position: absolute;
+  width: 100%;
+}
+
+body.is-landing-page .menu-toggle,
+body.is-landing-page .logo-link,
+body.is-landing-page #export-pdf-btn {
+  display: none !important;
+}
+
+body.is-landing-page .header-actions {
+  width: 100%;
+  justify-content: flex-end;
+}
+
+body.is-landing-page .layout-main {
+  min-height: 100vh;
+}
+
+body.is-landing-page .content {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  max-width: 100% !important;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+body.is-landing-page .documentation {
+  width: 100%;
+  max-width: 800px;
+  padding: 2rem 1rem;
+}

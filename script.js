@@ -16,6 +16,12 @@
             this.setupEventListeners();
             this.updateThemeButton();
             this.loadNavigation();
+            
+            var hash = window.location.hash.slice(1);
+            if (hash) {
+                this.currentPath = hash + '.md';
+            }
+            
             this.loadContent(this.currentPath);
             this.setupKeyboardShortcuts();
             this.setupScrollspy();
@@ -254,7 +260,8 @@
         loadNavigation: function() {
             var self = this;
             
-            fetch('./docs/config.yml')
+            // Añadimos un cache buster para que siempre cargue la última versión del menú
+            return fetch('./docs/config.yml?t=' + new Date().getTime())
                 .then(function(response) {
                     if (!response.ok) throw new Error('Config not found');
                     return response.text();
@@ -485,6 +492,9 @@
             var self = this;
             var validPath = this.validatePath(path);
             this.currentPath = validPath;
+            
+            // Si es la página de inicio, activamos el modo landing (sin barras laterales)
+            document.body.classList.toggle('is-landing-page', validPath === 'index.md');
             
             var contentElement = document.getElementById('documentation-content');
             if (!contentElement) return;
@@ -1093,11 +1103,6 @@
                 .catch(function(err) {
                     console.log('Service Worker error:', err);
                 });
-        }
-        
-        var hash = window.location.hash.slice(1);
-        if (hash) {
-            DocsViewer.loadContent(hash + '.md');
         }
     }
     
